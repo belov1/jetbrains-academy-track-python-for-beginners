@@ -1,16 +1,6 @@
 import argparse
 import math
 
-parser = argparse.ArgumentParser()
-
-parser.add_argument('--type', choices=['annuity', 'diff'])
-parser.add_argument('--principal', type=float)
-parser.add_argument('--periods', type=int)
-parser.add_argument('--interest', type=float)
-parser.add_argument('--payment', type=float)
-
-args = parser.parse_args()
-
 
 def number_of_payments(principal, payment, interest):
     if principal > 0 and payment > 0 and interest > 0:
@@ -71,6 +61,16 @@ def loan_principal(payment, periods, interest):
     else:
         print('Incorrect parameters')
 
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('--type', choices=['annuity', 'diff'])
+parser.add_argument('--principal', type=float)
+parser.add_argument('--periods', type=int)
+parser.add_argument('--interest', type=float)
+parser.add_argument('--payment', type=float)
+
+args = parser.parse_args()
 
 if not args.interest:
     print('Incorrect parameters')
