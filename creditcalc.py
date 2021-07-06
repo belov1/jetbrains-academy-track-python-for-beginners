@@ -72,21 +72,21 @@ def loan_principal(payment, periods, interest):
         print('Incorrect parameters')
 
 
-if args.interest:
-    if args.type == 'annuity':
-        if args.principal and args.payment and args.interest:
-            number_of_payments(args.principal, args.payment, args.interest)
-        elif args.principal and args.periods and args.interest:
-            annuity_payment_amount(args.principal, args.periods, args.interest)
-        elif args.payment and args.periods and args.interest:
-            loan_principal(args.payment, args.periods, args.interest)
-        else:
-            print('Incorrect parameters')
-    elif args.type == 'diff':
-        if args.principal and args.periods and args.interest:
-            diff_payment_amount(args.principal, args.periods, args.interest)
-        else:
-            print('Incorrect parameters')
+if not args.interest:
+    print('Incorrect parameters')
+    exit()
+if args.type == 'annuity':
+    if args.principal and args.payment and args.interest:
+        number_of_payments(args.principal, args.payment, args.interest)
+    elif args.principal and args.periods and args.interest:
+        annuity_payment_amount(args.principal, args.periods, args.interest)
+    elif args.payment and args.periods and args.interest:
+        loan_principal(args.payment, args.periods, args.interest)
+    else:
+        print('Incorrect parameters')
+elif args.type == 'diff':
+    if args.principal and args.periods and args.interest:
+        diff_payment_amount(args.principal, args.periods, args.interest)
     else:
         print('Incorrect parameters')
 else:
